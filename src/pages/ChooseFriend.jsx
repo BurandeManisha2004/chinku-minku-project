@@ -1,6 +1,8 @@
 import { useState } from "react";
 import boy from "../assets/boy.png";
 import girl from "../assets/girl.png";
+import teacher from "../assets/teacher.jpg";
+
 
 export default function ChooseFriend({ goBack, goNext }) {
   const [videoSrc, setVideoSrc] = useState(null);
@@ -132,7 +134,7 @@ export default function ChooseFriend({ goBack, goNext }) {
           </div>
 
           <div className="bg-white rounded-2xl p-3 shadow border text-center">
-            <img src={girl} className="w-20 h-24 object-contain mx-auto" />
+            <img src={teacher} className="w-20 h-24 object-contain mx-auto" />
             <h2 className="font-black mt-2">Teacher</h2>
             <button
               onClick={() => handleSelect("Teacher")}
