@@ -30,19 +30,19 @@ export default function Home({ goToFriend }) {
 
           <div className="flex flex-wrap justify-center gap-3 sm:gap-5 items-center text-sm sm:text-lg">
 
-            <button className="bg-blue-500 text-white px-5 py-2 rounded-full font-black">
+            <button className="bg-blue-500 text-white px-5 py-2 rounded-full font-black cursor-pointer">
               Home
             </button>
 
-            <button className="font-bold text-gray-700">
+            <button className="font-bold text-gray-700 cursor-pointer">
               1st Standard
             </button>
 
-            <button className="font-bold text-gray-700">
+            <button className="font-bold text-gray-700 cursor-pointer">
               2nd Standard
             </button>
 
-            <button className="font-bold text-gray-700">
+            <button className="font-bold text-gray-700 cursor-pointer">
               Holiday Fun
             </button>
 
@@ -77,7 +77,7 @@ export default function Home({ goToFriend }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-14">
 
             {/* 1st Std */}
-            <div className="bg-green-500 rounded-3xl p-7 text-white shadow-lg flex flex-col">
+            <div className="bg-green-500 rounded-3xl p-7 text-white shadow-lg flex flex-col transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300">
 
               <div className="text-3xl mb-4">📚</div>
 
@@ -88,7 +88,7 @@ export default function Home({ goToFriend }) {
 
               <button
                 onClick={goToFriend}
-                className="bg-white text-gray-800 w-full py-4 rounded-full mt-auto font-black text-xl"
+                className="bg-white text-gray-800 w-full py-4 rounded-full mt-auto font-black text-xl cursor-pointer hover:bg-green-700 hover:text-white transition-colors duration-500"
               >
                 Start
               </button>
@@ -96,7 +96,7 @@ export default function Home({ goToFriend }) {
             </div>
 
             {/* 2nd Std */}
-            <div className="bg-blue-500 rounded-3xl p-7 text-white shadow-lg flex flex-col">
+            <div className="bg-blue-500 rounded-3xl p-7 text-white shadow-lg flex flex-col transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300">
 
               <div className="text-3xl mb-4">✏️</div>
 
@@ -107,7 +107,7 @@ export default function Home({ goToFriend }) {
 
               <button
                 onClick={goToFriend}
-                className="bg-white text-gray-800 w-full py-4 rounded-full mt-auto font-black text-xl"
+                className="bg-white text-gray-800 w-full py-4 rounded-full mt-auto font-black text-xl cursor-pointer hover:bg-blue-700 hover:text-white transition-color duration-500"
               >
                 Start
               </button>
@@ -115,7 +115,7 @@ export default function Home({ goToFriend }) {
             </div>
 
             {/* Holiday */}
-            <div className="bg-purple-500 rounded-3xl p-7 text-white shadow-lg flex flex-col">
+            <div className="bg-purple-500 rounded-3xl p-7 text-white shadow-lg flex flex-col transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/40 trasition-all duration-300">
 
               <div className="text-3xl mb-4">🎨</div>
 
@@ -126,7 +126,7 @@ export default function Home({ goToFriend }) {
 
               <button
                 onClick={goToFriend}
-                className="bg-white text-gray-800 w-full py-4 rounded-full mt-auto font-black text-xl"
+                className="bg-white text-gray-800 w-full py-4 rounded-full mt-auto font-black text-xl cursor-pointer hover:bg-violet-700 hover:text-white transition-color duration-500"
               >
                 Start
               </button>
