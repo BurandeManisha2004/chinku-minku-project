@@ -7,6 +7,8 @@ import teacher from "../assets/teacher.jpg";
 export default function ChooseFriend({ goBack, goNext }) {
   const [videoSrc, setVideoSrc] = useState(null);
 
+  const [friend, setFriend] = useState('Chintu');
+
   const handleSelect = (friend) => {
     const src =
       friend === "Chintu"
@@ -91,9 +93,12 @@ export default function ChooseFriend({ goBack, goNext }) {
         <div className="p-4">
           <button
             onClick={goBack}
-            className="text-blue-700 font-bold text-lg"
+            className=" group text-blue-700 font-bold text-lg cursor-pointer border-2 border-blue-700 bg-transparent hover:bg-blue-700 hover:text-white transition-all duration-300 rounded-lg px-4 py-1 flex items-center gap-2"
           >
-            ← Back
+            <span className="inline-block transition-transform duration-300 group-hover:-translate-x-2">
+            ← 
+            </span>
+            Back
           </button>
         </div>
 
@@ -111,34 +116,43 @@ export default function ChooseFriend({ goBack, goNext }) {
         {/* FRIEND CARDS */}
         <div className="grid grid-cols-3 gap-3 p-4 mt-6">
 
-          <div className="bg-white rounded-2xl p-3 shadow border text-center">
+          <div 
+              onClick={()=>setFriend('Chintu')}
+              className="bg-white rounded-2xl p-3 shadow border text-center cursor-pointer">
+            
             <img src={boy} className="w-20 h-24 object-contain mx-auto" />
-            <h2 className="font-black mt-2">Chintu</h2>
+            <h2 className="font-black mt-2 ">Chintu</h2>
             <button
               onClick={() => handleSelect("Chintu")}
-              className="bg-green-500 text-white rounded-full w-full mt-3 py-2 shadow-md text-lg"
+              className="bg-green-500 text-white rounded-full w-full mt-3 py-2 shadow-md text-lg cursor-pointer border-2 border-black-700 hover:bg-green-700"
             >
               🔊
             </button>
           </div>
 
-          <div className="bg-white rounded-2xl p-3 shadow border text-center">
+          <div 
+            onClick={()=>setFriend('Minku')}
+            className="bg-white rounded-2xl p-3 shadow border text-center cursor-pointer">
+            
             <img src={girl} className="w-20 h-24 object-contain mx-auto" />
             <h2 className="font-black mt-2">Minku</h2>
             <button
               onClick={() => handleSelect("Minku")}
-              className="bg-pink-500 text-white rounded-full w-full mt-3 py-2 shadow-md text-lg"
+              className="bg-pink-500 text-white rounded-full w-full mt-3 py-2 shadow-md text-lg cursor-pointer border-2 border-black-700 hover:bg-pink-700"
             >
               🔊
             </button>
           </div>
 
-          <div className="bg-white rounded-2xl p-3 shadow border text-center">
+          <div 
+            onClick={()=>setFriend('Teacher')}
+            className="bg-white rounded-2xl p-3 shadow border text-center cursor-pointer">
+          
             <img src={teacher} className="w-20 h-24 object-contain mx-auto" />
             <h2 className="font-black mt-2">Teacher</h2>
             <button
               onClick={() => handleSelect("Teacher")}
-              className="bg-purple-500 text-white rounded-full w-full mt-3 py-2 shadow-md text-lg"
+              className="bg-purple-500 text-white rounded-full w-full mt-3 py-2 shadow-md text-lg cursor-pointer border-2 border-black-700 hover:bg-violet-700"
             >
               🔊
             </button>
@@ -149,9 +163,35 @@ export default function ChooseFriend({ goBack, goNext }) {
         {/* MESSAGE */}
         <div className="p-4 pt-1">
           <div className="bg-white rounded-2xl p-3 shadow flex items-center gap-3 border">
-            <img src={boy} className="w-14 h-14 object-contain" />
 
             <div>
+              {friend === 'Chintu' && <img src={boy} className="w-14 h-14 object-contain" />}
+              {friend === 'Minku' && <img src={girl} className="w-14 h-14 object-conatin" />}
+              {friend === "Teacher" && <img src={teacher} className="w-14 h-14 object-conatin" />}
+            </div>
+
+            <div className="text-left">
+                {friend === 'Chintu' && (
+                  <>
+                    <p className="font-bold text-gray-800">नमस्कार! मी चिंटू.</p>
+                    <p className="text-sm text-fray-600 font-semibold mt-1">चला खेळत खेळत इंग्रजी शिकुया!</p>
+                  </>
+                )}
+                {friend === 'Minku' && (
+                  <>
+                    <p className="font-bold text-gray-800">नमस्कार! मी मिंकू.</p>
+                    <p className="text-sm text-fray-600 font-semibold mt-1">चला खेळत खेळत इंग्रजी शिकुया!</p>
+                  </>
+                )}
+                {friend === 'Teacher' && (
+                  <>
+                    <p className="font-bold text-gray-800">नमस्ते मुलांनो! मी तुमची शिक्षिका.</p>
+                    <p className="text-sm text-fray-600 font-semibold mt-1">चला खेळत खेळत इंग्रजी शिकुया!</p>
+                  </>
+                )}
+            </div>
+
+            {/* <div>
               <p className="font-bold text-gray-800">
                 नमस्कार! मी चिंटू.
               </p>
@@ -159,7 +199,7 @@ export default function ChooseFriend({ goBack, goNext }) {
               <p className="text-sm text-gray-600 font-semibold mt-1">
                 चला खेळत खेळत इंग्रजी शिकुया!
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
 

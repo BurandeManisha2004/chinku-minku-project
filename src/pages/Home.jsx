@@ -2,7 +2,17 @@ import boy from "../assets/boy.png";
 import girl from "../assets/girl.png";
 import holiday from "../assets/holiday.png";
 
+import { useState, useRef } from 'react';
+
 export default function Home({ goToFriend }) {
+
+  const std1Ref = useRef(null);
+  const std2Ref = useRef(null);
+  const holidayRef = useRef(null);
+
+  const scrollDown = (element)=>{
+    element.current?.scrollIntoView({behaviour: 'smoot', block:'center'});
+  };
 
   return (
 
@@ -34,16 +44,25 @@ export default function Home({ goToFriend }) {
               Home
             </button>
 
-            <button className="font-bold text-gray-700 cursor-pointer">
+            <button
+            onClick={()=>scrollDown(std1Ref)} 
+              className="font-bold text-gray-700 cursor-pointer relative py-1 group hover:text-blue-500 transition-colors">
               1st Standard
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full" ></span>
             </button>
 
-            <button className="font-bold text-gray-700 cursor-pointer">
+            <button 
+              onClick={()=>scrollDown(std2Ref)}
+              className="font-bold text-gray-700 cursor-pointer relative py-1 group hover:text-blue-500 transition-colors">
               2nd Standard
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full" ></span>
             </button>
 
-            <button className="font-bold text-gray-700 cursor-pointer">
+            <button 
+              onClick={()=>scrollDown(holidayRef)}
+              className="font-bold text-gray-700 cursor-pointer relative py-1 group hover:text-blue-500 transition-colors">
               Holiday Fun
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full" ></span>
             </button>
 
           </div>
@@ -77,14 +96,14 @@ export default function Home({ goToFriend }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-14">
 
             {/* 1st Std */}
-            <div className="bg-green-500 rounded-3xl p-7 text-white shadow-lg flex flex-col transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300">
+            <div ref={std1Ref} className="bg-green-500 rounded-3xl p-7 text-white shadow-lg flex flex-col transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300">
 
               <div className="text-3xl mb-4">📚</div>
 
               <h2 className="text-4xl font-black">1st</h2>
               <p className="font-black text-xl mt-1">Standard</p>
 
-              <img src={boy} className="w-40 h-52 object-contain mx-auto mt-5" />
+              <img src={boy} className="w-40 h-52 object-contain mx-auto mb-5 hover:scale-120 transition-transform duration-300" />
 
               <button
                 onClick={goToFriend}
@@ -96,14 +115,14 @@ export default function Home({ goToFriend }) {
             </div>
 
             {/* 2nd Std */}
-            <div className="bg-blue-500 rounded-3xl p-7 text-white shadow-lg flex flex-col transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300">
+            <div ref={std2Ref} className="bg-blue-500 rounded-3xl p-7 text-white shadow-lg flex flex-col transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300">
 
               <div className="text-3xl mb-4">✏️</div>
 
               <h2 className="text-4xl font-black">2nd</h2>
               <p className="font-black text-xl mt-1">Standard</p>
 
-              <img src={girl} className="w-40 h-52 object-contain mx-auto mt-5" />
+              <img src={girl} className="w-40 h-52 object-contain mx-auto hover:scale-130 transition-transform duration-300" />
 
               <button
                 onClick={goToFriend}
@@ -115,14 +134,14 @@ export default function Home({ goToFriend }) {
             </div>
 
             {/* Holiday */}
-            <div className="bg-purple-500 rounded-3xl p-7 text-white shadow-lg flex flex-col transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/40 trasition-all duration-300">
+            <div ref={holidayRef} className="bg-purple-500 rounded-3xl p-7 text-white shadow-lg flex flex-col transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/40 trasition-all duration-300">
 
               <div className="text-3xl mb-4">🎨</div>
 
               <h2 className="text-4xl font-black">Holiday</h2>
               <p className="font-black text-xl mt-1">Fun</p>
 
-              <img src={holiday} className="w-40 h-52 object-contain mx-auto mt-5" />
+              <img src={holiday} className="w-40 h-52 object-contain mx-auto hover:scale-130 transition-transform duration-300" />
 
               <button
                 onClick={goToFriend}
